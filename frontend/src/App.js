@@ -1,8 +1,6 @@
 import Carousel from './Components/User/Carousel/Carousel';
 import './App.css';
-import UserLogin from './Components/User/Login/UserLogin';
 import Products from './Components/User/Products/Products';
-import Signup from './Components/User/Signup/Signup';
 import './Components/User/Carousel/carousel.css';
 import Navbar from './Components/User/Navbar/Navbar';
 function App() {
@@ -12,7 +10,15 @@ function App() {
         {/* <Signup/> */}
         <Navbar/>
         <Carousel />
-        <Products/>
+        <Router>
+          <Route exact path="/">
+             <Products/>
+          </Route>
+          <Route exact path="/store/add">
+           <Addproduct/>
+          </Route>
+       
+        </Router>
         
     </div>
   );
