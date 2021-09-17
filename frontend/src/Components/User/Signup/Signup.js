@@ -1,6 +1,31 @@
 import React from 'react'
+import axios from 'axios'
 import './Style.css'
 function Signup() {
+    const[user , setUser] = useState({
+        username :"",
+        email: "",
+        password: ""    
+    })
+    const handleChange = e =>{
+        const { name , value }=e.target
+        setUser({
+            ...user,
+            [name]: value
+        })
+      
+    }
+
+    const register = ()=>{
+        const {name , email ,password} = user
+        if(name && email && password){
+            axios.post("/api/Store/Signup", user).then(res => console.log(res))
+        }else{
+            alert("invalid")
+        }
+        
+    }
+
     return (
         <div>
             <div class="container">
@@ -22,32 +47,22 @@ function Signup() {
                                         </p>
                                     </div>
                                 </div>
-                                <form action="/signup" method="post" class="signin-form" enctype="multipart/form-data">
-
-                                    <div class="input-group my-3">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupFileAddon01">Upload your Photo</span>
-                                        </div>
-                                        <div class="custom-file">
-                                            <input required type="file" name="dp" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" />
-                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                        </div>
-                                    </div>
+                                <form class="signin-form" enctype="multipart/form-data">
 
                                     <div class="form-group mb-3">
                                         <label class="label" for="name">Username</label>
-                                        <input required type="text" name="username" class="form-control" placeholder="Username" required />
+                                        <input required type="text" name="username" class="form-control" placeholder="Username" value={user.username} onChange={ handleChange } required />
                                     </div>
                                     <div class="form-group mb-3">
                                         <label class="label" for="name">Email</label>
-                                        <input required type="email" name="emailid" class="form-control" placeholder="email" required />
+                                        <input required type="email" name="email" class="form-control" placeholder="email" value={user.email} onChange={ handleChange } required />
                                     </div>
                                     <div class="form-group mb-3">
                                         <label class="label" for="password">Password</label>
-                                        <input required type="password" name="password" class="form-control" placeholder="Password" required />
+                                        <input required type="password" name="password" class="form-control" placeholder="Password" value={user.password} onChange={ handleChange } required />
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
+                                        <button type="submit" class="form-control btn btn-primary rounded submit px-3" onClick={register}>Sign In</button>
                                     </div>
                                     <div class="form-group d-md-flex">
                                         <div class="w-50 text-left">
