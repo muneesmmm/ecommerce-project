@@ -3,6 +3,9 @@ import './App.css';
 import Products from './Components/User/Products/Products';
 import './Components/User/Carousel/carousel.css';
 import Navbar from './Components/User/Navbar/Navbar';
+import {BrowserRouter as Router,Route} from 'react-router-dom'
+import Addproduct from './Components/Store/Products/Addproduct';
+
 function App() {
   return (
     <div>
