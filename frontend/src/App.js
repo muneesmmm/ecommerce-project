@@ -4,10 +4,11 @@ import Products from './Components/User/Products/Products';
 import './Components/User/Carousel/carousel.css';
 import Addproduct from './Components/Store/Products/Addproduct';
 import {BrowserRouter as Router,Route} from 'react-router-dom'
+import { Navbar } from 'react-bootstrap';
 function App() {
   return (
     <div>
-
+        <Navbar/>
         <Carousel />
         <Router>
           <Route exact path="/">
