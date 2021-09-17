@@ -1,14 +1,14 @@
-import './App.css'
-import {BrowserRouter as Router,Route} from 'react-router-dom'
-import UserLogin from './Components/User/Login/UserLogin';
+import Carousel from './Components/User/Carousel/Carousel';
+import './App.css';
 import Products from './Components/User/Products/Products';
-import Navbar from './Components/User/Navbar/Navbar';
+import './Components/User/Carousel/carousel.css';
 import Addproduct from './Components/Store/Products/Addproduct';
-
+import {BrowserRouter as Router,Route} from 'react-router-dom'
 function App() {
   return (
     <div>
-        <Navbar/>
+
+        <Carousel />
         <Router>
           <Route exact path="/">
              <Products/>
@@ -16,10 +16,7 @@ function App() {
           <Route exact path="/store/add">
            <Addproduct/>
           </Route>
-        {/* <UserLogin/> */}
-        {/* <Signup/> */}
-        {/* <Products/> */}
-        
+       
         </Router>
         
     </div>
